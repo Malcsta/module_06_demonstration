@@ -9,13 +9,21 @@ program, import this enum using:
 from account.account_type import AccountType 
 """
 
-# docstring for enum:
-"""
-An enumeration of the types of bank accounts supported
-by PiXELL River Financial.
-Values:
-    SAVINGS: {description}
-    CHEQUING
-    MORTGAGE
-    CREDIT
-"""
+from enum import Enum
+
+class AccountType(Enum):
+    """
+    An enumeration of the types of bank accounts supported
+    by PiXELL River Financial.
+    Values:
+        SAVINGS: {description}
+        CHEQUING
+        MORTGAGE
+        CREDIT
+    """
+    SAVINGS = 1
+    CHEQUING = 2
+    MORTGAGE = 3
+    CREDIT = 4
+    
+
