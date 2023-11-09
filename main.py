@@ -9,7 +9,7 @@ corner of VS code. or in the terminal type:
 python main.py
 """
 # UNCOMMENT FOR DEMO:
-"""
+
 from account.account import Account
 from account.account_type import AccountType
 
@@ -63,4 +63,4 @@ def main():
 if __name__ == "__main__":
     main()
 
-"""   
+  

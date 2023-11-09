@@ -140,3 +140,16 @@ class AccountTests(unittest.TestCase):
     #2. valid withdraw
     #3. non-numeric amount
     #4. insufficient funds  (DEMONSTRATED)
+
+    def test_update_balance_insufficient_funds(self):
+
+        #Arrange
+        account = Account(AccountType.SAVINGS, 1234567, 5000)
+        expected = 'Insufficient funds!'
+
+        #Act
+        with self.assertRaises(ValueError) as context:
+            account.update_balance(-5001)
+
+        #Assert
+        self.assertEquals(str(context.exception), expected)

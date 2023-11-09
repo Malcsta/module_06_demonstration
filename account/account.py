@@ -183,18 +183,29 @@ class Account:
         )
 
 ## UPDATE_BALANCE
-# given docstring for update_balance()
-"""
-Update the balance of the account.  All deposits (+) are 
-permitted.  Withdraws (-) are only permitted if sufficient funds.
+    def update_balance(self, amount: float):
+        """
+        Update the balance of the account.  All deposits (+) are 
+        permitted.  Withdraws (-) are only permitted if sufficient funds.
 
-Args:
-    amount(float): amount of transaction.  Positive values 
-    are deposited, negative values are withdrawn.
+        Args:
+            amount(float): amount of transaction.  Positive values 
+            are deposited, negative values are withdrawn.
 
-Returns:
-    None
-Raises:
-    ValueError: When the amount is non-numeric.
-    ValueError: When there are insufficient funds.
-"""
+        Returns:
+            None
+        Raises:
+            ValueError: When the amount is non-numeric.
+            ValueError: When there are insufficient funds.
+        """
+        try:
+            amount = float(amount)
+        except:
+            raise ValueError('Amount must be numeric.')
+        
+        if amount > 0:
+            self._balance += amount
+        elif amount < 0 and abs(amount) <= self._balance:
+            self._balance += amount
+        else:
+            raise ValueError('Insufficient funds!')
